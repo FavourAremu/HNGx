@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Data Showcase</title>
     <style>
-        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -37,37 +36,52 @@
 </head>
 <body>
     <div class="container">
-        <h1 data-testid="page-title">Personal Data Showcase</h1>
-        
-        <div class="personal-info">
+         <div class="personal-info">
             <h2 data-testid="personal-info-title">Personal Information</h2>
             <ul>
                 <ul data-testid="slackUserName">Name: Favour Aremu</ul>
                 <ul data-testid="slackDisplayImage"><Img src="https://ca.slack-edge.com/T05FFAA91JP-U05RNEALPL1-9734bbc3ab4c-512" alt="Favour Aremu"></Img></ul>
-                <ul data-testid="email">Email: john.doe@example.com</ul>
-                <ul data-testid="age">Age: 30</ul>
+                <ul data-testid="myTrack">Track: FrontEnd</ul>
+                <ul data-testid="githubURL" ><a href="https://github.com/FavourAremu/HNGx">Github</a></ul>
             </ul>
-        </div>
-
-        <div class="real-time-data">
-            <h2 data-testid="real-time-data-title">Real-Time Data</h2>
-            <p data-testid="clock">Current Time: <span id="clock"></span></p>
-            <p data-testid="currentDayOfTheWeek">Day of the week: <span id="Date"></span></p>
         </div>
     </div>
 
+    <div class="container">
+        <h1>Real-Time Date</h1>
+        <p id="currentDayOfTheWeek"></p>
+    </div>
+
     <script>
-        // JavaScript for real-time data
-        function updateTime() {
-            const clockElement = document.getElementById('clock');
+        // JavaScript for real-time date
+        function updateDate() {
+            const currentDateElement = document.getElementById('currentDayOfTheWeek');
             const now = new Date();
-            const timeString = now.toLocaleTimeString();
-            clockElement.textContent = timeString;
+            const dateString = now.toLocaleDateString();
+            currentDateElement.textContent = `Current Date: ${dateString}`;
         }
 
-        // Update the time immediately and then every second
-        updateTime();
-        setInterval(updateTime, 1000);
+        // Update the date immediately and then every second (you can adjust the interval)
+        updateDate();
+        setInterval(updateDate, 1000);
+    </script>
+    <div class="container">
+        <h1>Real-Time(UTC)</h1>
+        <p id="currentUTCTime"></p>
+    </div>
+    <script>
+        // JavaScript for real-time UTC time
+        function updateUTCTime() {
+            const currentUTCTimeElement = document.getElementById('currentUTCTime');
+            const now = new Date();
+            const utcTimeString = now.toISOString().slice(11, 19); // Extracts the time portion
+            currentUTCTimeElement.textContent = `Current UTC Time: ${utcTimeString} UTC`;
+        }
+
+        // Update the UTC time immediately and then every second (you can adjust the interval)
+        updateUTCTime();
+        setInterval(updateUTCTime, 1000);
+    </script>
     </script>
 </body>
 </html>
