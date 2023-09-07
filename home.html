@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Data Showcase</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .personal-info {
+            margin-bottom: 20px;
+        }
+
+        .real-time-data {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 data-testid="page-title">Personal Data Showcase</h1>
+        
+        <div class="personal-info">
+            <h2 data-testid="personal-info-title">Personal Information</h2>
+            <ul>
+                <ul data-testid="slackUserName">Name: Favour Aremu</ul>
+                <ul data-testid="slackDisplayImage"><Img src="https://ca.slack-edge.com/T05FFAA91JP-U05RNEALPL1-9734bbc3ab4c-512" alt="Favour Aremu"></Img></ul>
+                <ul data-testid="email">Email: john.doe@example.com</ul>
+                <ul data-testid="age">Age: 30</ul>
+            </ul>
+        </div>
+
+        <div class="real-time-data">
+            <h2 data-testid="real-time-data-title">Real-Time Data</h2>
+            <p data-testid="clock">Current Time: <span id="clock"></span></p>
+            <p data-testid="currentDayOfTheWeek">Day of the week: <span id="Date"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for real-time data
+        function updateTime() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            clockElement.textContent = timeString;
+        }
+
+        // Update the time immediately and then every second
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
